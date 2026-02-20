@@ -8,22 +8,24 @@
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 10px; /* ดู Tips ด้านล่าง ถ้าอยากให้ชิดขอบจอแบบ 100% */
+    /* แนะนำให้ใช้ padding: 0; เพื่อให้สีเขียวกระจายเต็มขอบจอ 100% */
+    padding: 0; 
     background-color: transparent;
   }
 
   /* กรอบ Footer หลัก */
   .footer-container {
-    background: linear-gradient(135deg, #086b3a 0%, #044222 100%);
+    background-color: #007947; /* เปลี่ยนเป็นสีเขียวที่คุณต้องการ */
     color: white;
     padding: 30px 40px;
-    border-radius: 12px;
+    /* เอา border-radius ออก เพื่อให้กล่องเป็นสี่เหลี่ยมแนบสนิทกับเว็บ */
+    border-radius: 0; 
     display: flex;
     flex-wrap: wrap; /* สำคัญ: อนุญาตให้ปัดบรรทัดถ้าย่อจอ */
     justify-content: space-between;
     align-items: center;
     gap: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* ปรับเงาให้ดูซอฟต์ลงเข้ากับสีทึบ */
   }
 
   /* ==================================
@@ -105,11 +107,11 @@
     max-width: 28%; /* ล็อคไม่ให้ใหญ่เกินไปในจอเล็ก */
     height: auto;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); /* ปรับเงาให้ซอฟต์ลง */
   }
   .award-logo:hover {
     transform: scale(1.15) translateY(-5px);
-    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4));
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.3));
   }
 
   /* ==================================
@@ -158,7 +160,7 @@
   <div class="footer-container">
     <div class="footer-brand">
       <img src="logo-rmcg.png" alt="RM&CG HAADTHIP" class="brand-logo">
-      <p class="brand-desc">ฝ่ายบริหารความเสี่ยง และกำกับดูแลกิจการ</p>
+      <p class="brand-desc">ฝ่ายบริหารความเสี่ยง และฝ่ายกำกับดูแลกิจการ</p>
     </div>
 
     <div class="footer-links">
