@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Footer</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: transparent;
+  }
+
+  /* กรอบ Footer หลัก */
+  .footer-container {
+    background: linear-gradient(135deg, #086b3a 0%, #044222 100%); /* ไล่เฉดสีเขียวให้ดูมีมิติ */
+    color: white;
+    padding: 40px 50px;
+    border-radius: 16px; /* ขอบโค้งมนให้ดูทันสมัย */
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr; /* แบ่งเป็น 3 ส่วน ซ้าย กลาง ขวา */
+    gap: 30px;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+
+  /* ==================================
+     ส่วนที่ 1: โลโก้องค์กร (ด้านซ้าย)
+     ================================== */
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .brand-logo {
+    width: 280px; /* ปรับขนาดโลโก้ RM&CG */
+    max-width: 100%;
+    transition: transform 0.3s ease;
+  }
+  .brand-logo:hover {
+    transform: scale(1.02); /* ซูมโลโก้หลักนิดๆ ตอนเอาเมาส์ชี้ */
+  }
+  .brand-desc {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  /* ==================================
+     ส่วนที่ 2: ลิงก์เมนู (ตรงกลาง)
+     ================================== */
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(255,255,255,0.2); /* เส้นแบ่งบางๆ */
+  }
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-block;
+    transition: all 0.3s ease;
+    position: relative;
+    width: fit-content;
+  }
+  /* เส้นขีดเส้นใต้ที่จะวิ่งออกมาตอนชี้ */
+  .footer-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #a3e4c0;
+    transition: width 0.3s ease;
+  }
+  .footer-links a:hover {
+    color: #a3e4c0; /* เปลี่ยนเป็นสีเขียวอ่อน */
+    transform: translateX(8px); /* ขยับข้อความไปทางขวา */
+  }
+  .footer-links a:hover::after {
+    width: 100%; /* เส้นวิ่งจนสุดข้อความ */
+  }
+
+  /* ==================================
+     ส่วนที่ 3: โลโก้รางวัล CAC (ด้านขวา)
+     ================================== */
+  .footer-awards {
+    display: flex;
+    justify-content: flex-end; /* ดันไปชิดขวา */
+    align-items: center;
+    gap: 20px;
+  }
+  .award-logo {
+    width: 85px; /* ปรับขนาดโลโก้ CAC */
+    height: auto;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* เอฟเฟกต์เด้งดึ๋ง */
+    cursor: default;
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* ใส่เงาให้โลโก้ */
+  }
+  .award-logo:hover {
+    transform: scale(1.15) translateY(-5px); /* ซูมและลอยขึ้น */
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4)); /* เงาเข้มขึ้นตอนลอย */
+  }
+
+  /* จัดระเบียบเมื่อเปิดในมือถือ */
+  @media (max-width: 900px) {
+    .footer-container {
+      grid-template-columns: 1fr; /* เปลี่ยนเป็นเรียงแนวตั้ง */
+      text-align: center;
+      padding: 30px 20px;
+    }
+    .footer-links {
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 20px 0;
+      align-items: center;
+    }
+    .footer-awards {
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+  <div class="footer-container">
+    
+    <div class="footer-brand">
+      <img src="logo-rmcg.png" alt="RM&CG HAADTHIP" class="brand-logo">
+      <p class="brand-desc">ฝ่ายบริหารความเสี่ยง และกำกับดูแลกิจการ</p>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://haadthipo365.sharepoint.com/:u:/s/RMCGConnect/IQDq9P-uksqNQ5N_01FQDxlPAatLLRuEJN63DEhjmU8YtFE?e=bAmGu8" target="_top">หน้าหลัก</a>
+      <a href="https://haadthipo365.sharepoint.com/sites/RMCGConnect/_layouts/15/news.aspx?title=%E0%B8%82%E0%B9%88%E0%B8%B2%E0%B8%A7%E0%B8%AA%E0%B8%B2%E0%B8%A3&newsSource=1&instanceId=81c50e1f-3102-4746-8bf1-317e2332d05a&webPartId=8c88f208-6c77-4bdb-86a0-0c47b4316588&serverRelativeUrl=/sites/RMCGConnect/SitePages/OrganizationHome.aspx&pagesListId=4f686553-2f18-41ee-9de1-9169b0bf0eb1" target="_top">ข่าวสาร</a>
+      <a href="https://haadthipo365.sharepoint.com/:u:/s/RMCGConnect/IQAPk6QO5DcsSY0fhqUeqzghAQ6J4Oq7UayF3kySNF5mqBA?e=WccFPM" target="_top">ติดต่อเรา</a>
+    </div>
+
+    <div class="footer-awards">
+      <img src="cac1.png" alt="CAC" class="award-logo">
+      <img src="cac2.png" alt="CAC Change Agent" class="award-logo">
+      <img src="cac3.png" alt="CAC Certified" class="award-logo">
+    </div>
+
+  </div>
+
+</body>
+</html>
