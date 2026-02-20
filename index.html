@@ -3,25 +3,26 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium Footer</title>
+<title>Premium Responsive Footer</title>
 <style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
-    padding: 10px;
+    padding: 10px; /* ดู Tips ด้านล่าง ถ้าอยากให้ชิดขอบจอแบบ 100% */
     background-color: transparent;
   }
 
   /* กรอบ Footer หลัก */
   .footer-container {
-    background: linear-gradient(135deg, #086b3a 0%, #044222 100%); /* ไล่เฉดสีเขียวให้ดูมีมิติ */
+    background: linear-gradient(135deg, #086b3a 0%, #044222 100%);
     color: white;
-    padding: 40px 50px;
-    border-radius: 16px; /* ขอบโค้งมนให้ดูทันสมัย */
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1.5fr; /* แบ่งเป็น 3 ส่วน ซ้าย กลาง ขวา */
-    gap: 30px;
+    padding: 30px 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-wrap: wrap; /* สำคัญ: อนุญาตให้ปัดบรรทัดถ้าย่อจอ */
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
   }
 
@@ -29,22 +30,22 @@
      ส่วนที่ 1: โลโก้องค์กร (ด้านซ้าย)
      ================================== */
   .footer-brand {
+    flex: 1 1 250px; /* อนุญาตให้ขยายและหดได้ */
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
   }
   .brand-logo {
-    width: 280px; /* ปรับขนาดโลโก้ RM&CG */
-    max-width: 100%;
+    width: 100%;
+    max-width: 270px;
     transition: transform 0.3s ease;
   }
   .brand-logo:hover {
-    transform: scale(1.02); /* ซูมโลโก้หลักนิดๆ ตอนเอาเมาส์ชี้ */
+    transform: scale(1.02);
   }
   .brand-desc {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    letter-spacing: 0.5px;
     opacity: 0.9;
     margin: 0;
   }
@@ -53,23 +54,23 @@
      ส่วนที่ 2: ลิงก์เมนู (ตรงกลาง)
      ================================== */
   .footer-links {
+    flex: 1 1 150px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     padding-left: 20px;
-    border-left: 1px solid rgba(255,255,255,0.2); /* เส้นแบ่งบางๆ */
+    border-left: 1px solid rgba(255,255,255,0.2);
   }
   .footer-links a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     display: inline-block;
     transition: all 0.3s ease;
     position: relative;
     width: fit-content;
   }
-  /* เส้นขีดเส้นใต้ที่จะวิ่งออกมาตอนชี้ */
   .footer-links a::after {
     content: '';
     position: absolute;
@@ -81,50 +82,73 @@
     transition: width 0.3s ease;
   }
   .footer-links a:hover {
-    color: #a3e4c0; /* เปลี่ยนเป็นสีเขียวอ่อน */
-    transform: translateX(8px); /* ขยับข้อความไปทางขวา */
+    color: #a3e4c0;
+    transform: translateX(8px);
   }
   .footer-links a:hover::after {
-    width: 100%; /* เส้นวิ่งจนสุดข้อความ */
+    width: 100%;
   }
 
   /* ==================================
      ส่วนที่ 3: โลโก้รางวัล CAC (ด้านขวา)
      ================================== */
   .footer-awards {
+    flex: 1 1 250px;
     display: flex;
-    justify-content: flex-end; /* ดันไปชิดขวา */
+    justify-content: flex-end;
     align-items: center;
-    gap: 20px;
+    flex-wrap: wrap; /* ถ้าย่อจอให้โลโก้เรียงซ้อนกันได้ */
+    gap: 15px;
   }
   .award-logo {
-    width: 85px; /* ปรับขนาดโลโก้ CAC */
+    width: 75px;
+    max-width: 28%; /* ล็อคไม่ให้ใหญ่เกินไปในจอเล็ก */
     height: auto;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* เอฟเฟกต์เด้งดึ๋ง */
-    cursor: default;
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2)); /* ใส่เงาให้โลโก้ */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.2));
   }
   .award-logo:hover {
-    transform: scale(1.15) translateY(-5px); /* ซูมและลอยขึ้น */
-    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4)); /* เงาเข้มขึ้นตอนลอย */
+    transform: scale(1.15) translateY(-5px);
+    filter: drop-shadow(0 8px 15px rgba(0,0,0,0.4));
   }
 
-  /* จัดระเบียบเมื่อเปิดในมือถือ */
+  /* ==================================
+     การตั้งค่าสำหรับย่อหน้าจอ (Responsive)
+     ================================== */
+     
+  /* สำหรับ iPad หรือ Tablet (จอขนาดกลาง) */
   @media (max-width: 900px) {
     .footer-container {
-      grid-template-columns: 1fr; /* เปลี่ยนเป็นเรียงแนวตั้ง */
+      padding: 25px 20px;
+    }
+    .brand-logo { max-width: 220px; }
+    .award-logo { width: 65px; }
+  }
+
+  /* สำหรับโทรศัพท์มือถือ (จอเล็ก) */
+  @media (max-width: 650px) {
+    .footer-container {
+      flex-direction: column; /* เปลี่ยนเป็นเรียงแนวตั้ง */
       text-align: center;
-      padding: 30px 20px;
+    }
+    .footer-brand {
+      align-items: center;
     }
     .footer-links {
       border-left: none;
       border-top: 1px solid rgba(255,255,255,0.2);
       border-bottom: 1px solid rgba(255,255,255,0.2);
       padding: 20px 0;
+      width: 100%;
       align-items: center;
     }
     .footer-awards {
       justify-content: center;
+      width: 100%;
+      margin-top: 10px;
+    }
+    .award-logo {
+      width: 70px;
     }
   }
 </style>
@@ -132,7 +156,6 @@
 <body>
 
   <div class="footer-container">
-    
     <div class="footer-brand">
       <img src="logo-rmcg.png" alt="RM&CG HAADTHIP" class="brand-logo">
       <p class="brand-desc">ฝ่ายบริหารความเสี่ยง และกำกับดูแลกิจการ</p>
@@ -149,7 +172,6 @@
       <img src="cac2.png" alt="CAC Change Agent" class="award-logo">
       <img src="cac3.png" alt="CAC Certified" class="award-logo">
     </div>
-
   </div>
 
 </body>
